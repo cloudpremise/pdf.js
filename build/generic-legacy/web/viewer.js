@@ -4921,51 +4921,51 @@ var esnext_iterator_constructor = __webpack_require__(8992);
 // EXTERNAL MODULE: ./node_modules/core-js/modules/esnext.iterator.some.js
 var esnext_iterator_some = __webpack_require__(7550);
 ;// CONCATENATED MODULE: ./web/pdfjs.js
-const {
-  AbortException,
-  AnnotationEditorLayer,
-  AnnotationEditorParamsType,
-  AnnotationEditorType,
-  AnnotationEditorUIManager,
-  AnnotationLayer,
-  AnnotationMode,
-  build,
-  CMapCompressionType,
-  ColorPicker,
-  createValidAbsoluteUrl,
-  DOMSVGFactory,
-  DrawLayer,
-  FeatureTest,
-  fetchData,
-  getDocument,
-  getFilenameFromUrl,
-  getPdfFilenameFromUrl: pdfjs_getPdfFilenameFromUrl,
-  getXfaPageViewport,
-  GlobalWorkerOptions,
-  ImageKind,
-  InvalidPDFException,
-  isDataScheme,
-  isPdfFile,
-  MissingPDFException,
-  noContextMenu,
-  normalizeUnicode,
-  OPS,
-  PasswordResponses,
-  PDFDataRangeTransport,
-  PDFDateString,
-  PDFWorker,
-  PermissionFlag,
-  PixelsPerInch,
-  RenderingCancelledException,
-  setLayerDimensions,
-  shadow,
-  TextLayer,
-  UnexpectedResponseException,
-  Util,
-  VerbosityLevel,
-  version,
-  XfaLayer
-} = globalThis.pdfjsLib;
+// const {
+//   AbortException,
+//   AnnotationEditorLayer,
+//   AnnotationEditorParamsType,
+//   AnnotationEditorType,
+//   AnnotationEditorUIManager,
+//   AnnotationLayer,
+//   AnnotationMode,
+//   build,
+//   CMapCompressionType,
+//   ColorPicker,
+//   createValidAbsoluteUrl,
+//   DOMSVGFactory,
+//   DrawLayer,
+//   FeatureTest,
+//   fetchData,
+//   getDocument,
+//   getFilenameFromUrl,
+//   getPdfFilenameFromUrl: pdfjs_getPdfFilenameFromUrl,
+//   getXfaPageViewport,
+//   GlobalWorkerOptions,
+//   ImageKind,
+//   InvalidPDFException,
+//   isDataScheme,
+//   isPdfFile,
+//   MissingPDFException,
+//   noContextMenu,
+//   normalizeUnicode,
+//   OPS,
+//   PasswordResponses,
+//   PDFDataRangeTransport,
+//   PDFDateString,
+//   PDFWorker,
+//   PermissionFlag,
+//   PixelsPerInch,
+//   RenderingCancelledException,
+//   setLayerDimensions,
+//   shadow,
+//   TextLayer,
+//   UnexpectedResponseException,
+//   Util,
+//   VerbosityLevel,
+//   version,
+//   XfaLayer
+// } = globalThis.pdfjsLib;
 
 ;// CONCATENATED MODULE: ./web/event_utils.js
 
@@ -18801,8 +18801,8 @@ function beforeUnload(evt) {
 
 
 
-const pdfjsVersion = "4.6.52";
-const pdfjsBuild = "b58c24ab0";
+// const pdfjsVersion = "4.6.52";
+// const pdfjsBuild = "b58c24ab0";
 const AppConstants = {
   LinkTarget: LinkTarget,
   RenderingStates: RenderingStates,
@@ -18986,16 +18986,16 @@ function webViewerLoad() {
   }
   PDFViewerApplication.run(config);
 }
-document.blockUnblockOnload?.(true);
-if (document.readyState === "interactive" || document.readyState === "complete") {
-  webViewerLoad();
-} else {
-  document.addEventListener("DOMContentLoaded", webViewerLoad, true);
-}
+// document.blockUnblockOnload?.(true);
+// if (document.readyState === "interactive" || document.readyState === "complete") {
+//   webViewerLoad();
+// } else {
+//   document.addEventListener("DOMContentLoaded", webViewerLoad, true);
+// }
 
 var __webpack_exports__PDFViewerApplication = __webpack_exports__.PDFViewerApplication;
 var __webpack_exports__PDFViewerApplicationConstants = __webpack_exports__.PDFViewerApplicationConstants;
 var __webpack_exports__PDFViewerApplicationOptions = __webpack_exports__.PDFViewerApplicationOptions;
-export { __webpack_exports__PDFViewerApplication as PDFViewerApplication, __webpack_exports__PDFViewerApplicationConstants as PDFViewerApplicationConstants, __webpack_exports__PDFViewerApplicationOptions as PDFViewerApplicationOptions };
+// export { __webpack_exports__PDFViewerApplication as PDFViewerApplication, __webpack_exports__PDFViewerApplicationConstants as PDFViewerApplicationConstants, __webpack_exports__PDFViewerApplicationOptions as PDFViewerApplicationOptions };
 
 //# sourceMappingURL=viewer.js.map
