@@ -452,7 +452,7 @@ function tweakWebpackOutput(jsName) {
 
 function createMainBundle(defines) {
   const mainFileConfig = createWebpackConfig(defines, {
-    filename: defines.MINIFIED ? "pdf.min.mjs" : "pdf.mjs",
+    filename: defines.MINIFIED ? "pdf.min.js" : "pdf.js",
     library: {
       type: "module",
     },
@@ -467,7 +467,7 @@ function createScriptingBundle(defines, extraOptions = undefined) {
   const scriptingFileConfig = createWebpackConfig(
     defines,
     {
-      filename: "pdf.scripting.mjs",
+      filename: "pdf.scripting.js",
       library: {
         type: "module",
       },
@@ -487,7 +487,7 @@ function createSandboxExternal(defines) {
   };
   return gulp
     .src("./src/pdf.sandbox.external.js", { encoding: false })
-    .pipe(rename("pdf.sandbox.external.sys.mjs"))
+    .pipe(rename("pdf.sandbox.external.sys.js"))
     .pipe(
       transform("utf8", content => {
         content = preprocessPDFJSCode(ctx, content);
@@ -505,7 +505,7 @@ function createTemporaryScriptingBundle(defines, extraOptions = undefined) {
 }
 
 function createSandboxBundle(defines, extraOptions = undefined) {
-  const scriptingPath = TMP_DIR + "pdf.scripting.mjs";
+  const scriptingPath = TMP_DIR + "pdf.scripting.js";
   // Insert the source as a string to be `eval`-ed in the sandbox.
   const sandboxDefines = {
     ...defines,
@@ -517,8 +517,8 @@ function createSandboxBundle(defines, extraOptions = undefined) {
     sandboxDefines,
     {
       filename: sandboxDefines.MINIFIED
-        ? "pdf.sandbox.min.mjs"
-        : "pdf.sandbox.mjs",
+        ? "pdf.sandbox.min.js"
+        : "pdf.sandbox.js",
       library: {
         type: "module",
       },
@@ -534,7 +534,7 @@ function createSandboxBundle(defines, extraOptions = undefined) {
 
 function createWorkerBundle(defines) {
   const workerFileConfig = createWebpackConfig(defines, {
-    filename: defines.MINIFIED ? "pdf.worker.min.mjs" : "pdf.worker.mjs",
+    filename: defines.MINIFIED ? "pdf.worker.min.js" : "pdf.worker.js",
     library: {
       type: "module",
     },
@@ -549,7 +549,7 @@ function createWebBundle(defines, options) {
   const viewerFileConfig = createWebpackConfig(
     defines,
     {
-      filename: "viewer.mjs",
+      filename: "viewer.js",
       library: {
         type: "module",
       },
@@ -567,7 +567,7 @@ function createGVWebBundle(defines, options) {
   const viewerFileConfig = createWebpackConfig(
     defines,
     {
-      filename: "viewer-geckoview.mjs",
+      filename: "viewer-geckoview.js",
       library: {
         type: "module",
       },
@@ -583,7 +583,7 @@ function createGVWebBundle(defines, options) {
 
 function createComponentsBundle(defines) {
   const componentsFileConfig = createWebpackConfig(defines, {
-    filename: "pdf_viewer.mjs",
+    filename: "pdf_viewer.js",
     library: {
       type: "module",
     },
@@ -597,8 +597,8 @@ function createComponentsBundle(defines) {
 function createImageDecodersBundle(defines) {
   const componentsFileConfig = createWebpackConfig(defines, {
     filename: defines.MINIFIED
-      ? "pdf.image_decoders.min.mjs"
-      : "pdf.image_decoders.mjs",
+      ? "pdf.image_decoders.min.js"
+      : "pdf.image_decoders.js",
     library: {
       type: "module",
     },
@@ -824,7 +824,7 @@ function buildDefaultPreferences(defines, dir) {
   const defaultPreferencesConfig = createWebpackConfig(
     bundleDefines,
     {
-      filename: "app_options.mjs",
+      filename: "app_options.js",
       library: {
         type: "module",
       },
@@ -845,7 +845,7 @@ async function parseDefaultPreferences(dir) {
 
   // eslint-disable-next-line no-unsanitized/method
   const { AppOptions, OptionKind } = await import(
-    "./" + DEFAULT_PREFERENCES_DIR + dir + "app_options.mjs"
+    "./" + DEFAULT_PREFERENCES_DIR + dir + "app_options.js"
   );
 
   const prefs = AppOptions.getAll(
@@ -2172,7 +2172,7 @@ function packageJson() {
   const npmManifest = {
     name: DIST_NAME,
     version: VERSION,
-    main: "build/pdf.mjs",
+    main: "build/pdf.js",
     types: "types/src/pdf.d.ts",
     description: DIST_DESCRIPTION,
     keywords: DIST_KEYWORDS,
@@ -2249,8 +2249,8 @@ gulp.task(
         gulp
           .src(
             [
-              GENERIC_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.mjs",
-              GENERIC_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.mjs.map",
+              GENERIC_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.js",
+              GENERIC_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.js.map",
             ],
             { encoding: false }
           )
@@ -2258,31 +2258,31 @@ gulp.task(
         gulp
           .src(
             [
-              GENERIC_LEGACY_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.mjs",
-              GENERIC_LEGACY_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.mjs.map",
+              GENERIC_LEGACY_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.js",
+              GENERIC_LEGACY_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.js.map",
             ],
             { encoding: false }
           )
           .pipe(gulp.dest(DIST_DIR + "legacy/build/")),
         gulp
-          .src(MINIFIED_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.min.mjs", {
+          .src(MINIFIED_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.min.js", {
             encoding: false,
           })
           .pipe(gulp.dest(DIST_DIR + "build/")),
         gulp
-          .src(MINIFIED_DIR + "image_decoders/pdf.image_decoders.min.mjs", {
+          .src(MINIFIED_DIR + "image_decoders/pdf.image_decoders.min.js", {
             encoding: false,
           })
           .pipe(gulp.dest(DIST_DIR + "image_decoders/")),
         gulp
           .src(
-            MINIFIED_LEGACY_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.min.mjs",
+            MINIFIED_LEGACY_DIR + "build/{pdf,pdf.worker,pdf.sandbox}.min.js",
             { encoding: false }
           )
           .pipe(gulp.dest(DIST_DIR + "legacy/build/")),
         gulp
           .src(
-            MINIFIED_LEGACY_DIR + "image_decoders/pdf.image_decoders.min.mjs",
+            MINIFIED_LEGACY_DIR + "image_decoders/pdf.image_decoders.min.js",
             { encoding: false }
           )
           .pipe(gulp.dest(DIST_DIR + "legacy/image_decoders/")),
